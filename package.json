@@ -1,0 +1,59 @@
+{
+  "name": "devnavigator",
+  "version": "1.0.0",
+  "description": "FreeSkillLocator helps you find and access free programming resources easily. Search through curated books, articles, websites, and YouTube channels with our user-friendly tool.",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest index.test.js",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Henryle-hd/dev-navigator.git"
+  },
+  "keywords": [
+    "Free",
+    "Resources",
+    "Programming",
+    "Learning",
+    "Skill",
+    "Discovery",
+    "Educational",
+    "Content",
+    "Search",
+    "Tool",
+    "Curated",
+    "Materials",
+    "Books",
+    "Articles",
+    "Websites",
+    "YouTube",
+    "Channels",
+    "Free",
+    "Learning",
+    "Skill",
+    "Development"
+  ],
+  "author": "henry dioniz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Henryle-hd/dev-navigator/issues"
+  },
+  "homepage": "https://github.com/Henryle-hd/dev-navigator#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.5.2"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.21",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.4",
+    "tailwindcss": "^3.4.9"
+  }
+}
