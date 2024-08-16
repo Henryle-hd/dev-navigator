@@ -153,20 +153,6 @@ main {
   padding: 20px;
   width: 300px;
 }
-.coverImage {
-  box-shadow: 0 4px 6px rgba(255, 84, 0, 0.3), 0 1px 3px rgba(255, 84, 0, 0.2);
-  /* border: 1px solid #ff5400; */
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -ms-border-radius: 0.5em;
-  -o-border-radius: 0.5em;
-  border-radius: 0.5em;
-  padding: 10px;
-}
-.coverImage img {
-  width: 100%;
-  border-radius: 5px;
-}
 
 .header {
   display: flex;
@@ -293,46 +279,33 @@ main {
   pointer-events: none;
 }
 
-.filter {
+.no-result {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #131518;
+  border-radius: 10px;
   margin-top: 20px;
+}
+.coverImage {
+  box-shadow: 0 4px 6px rgba(16, 16, 16, 0.3), 0 1px 3px rgba(10, 10, 10, 0.2);
+  border-radius: 0.5em;
+  padding: 10px;
+}
+.coverImage img {
+  width: 100%;
+  border-radius: 5px;
+}
+.no-result .coverImage {
+  max-width: 300px;
   margin-bottom: 20px;
 }
 
-.filter select {
-  background-color: #131518;
-  color: aliceblue;
-  border: 1px solid #ff5400;
-  padding: 8px 12px;
-  border-radius: 5px;
-  font-size: 1rem;
-  margin-right: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.filter select:hover {
-  background-color: #1c1f23;
-}
-
-.filter select:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(255, 84, 0, 0.3);
-}
-
-.filter button {
-  background-color: #ff5400;
-  color: aliceblue;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.filter button:hover {
-  background-color: #ff7730;
+.no-result h1 {
+  color: #ff5400;
+  font-size: 1.5rem;
+  margin: 0;
 }

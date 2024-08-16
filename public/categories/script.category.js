@@ -1,19 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
+  currentCategory = getCategoryFromUrl();
   fetchResources();
   setupPagination();
   setupSearch();
 });
 
+// get category from url
+function getCategoryFromUrl() {
+  const path = window.location.pathname;
+  const parts = path.split("/");
+  return parts[parts.length - 2] || "website";
+}
+
 let currentPage = 1;
 const itemsPerPage = 10;
-let currentCategory = "";
+let currentCategory = getCategoryFromUrl();
 let currentTag = "";
 let searchTerm = "";
 
 async function fetchResources() {
   try {
     const response = await fetch(
-      `/api/resources?page=${currentPage}&limit=${itemsPerPage}&category=${currentCategory}&tag=${currentTag}`
+      `/api/v1/query?page=${currentPage}&limit=${itemsPerPage}&category=${currentCategory}&tag=${currentTag}`
     );
     const data = await response.json();
     displayResources(data.data);
@@ -52,7 +60,7 @@ function createResourceElement(resource) {
   const box = document.createElement("div");
   box.className = "box";
 
-  const defaultImage = "./default.png";
+  const defaultImage = "../../default.png";
 
   box.innerHTML = `
     <div class="header">
@@ -138,7 +146,7 @@ function setupSearch() {
 }
 
 async function performSearch() {
-  searchTerm = document.getElementById("searchInput").value;
+  searchTerm = document.getElementById("searchInput").value.trim();
   try {
     const response = await fetch(
       `/api/v1/query?search=${encodeURIComponent(
