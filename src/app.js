@@ -14,5 +14,10 @@ app.use("/api/v1/query", routerQuery);
 
 //static
 app.use(express.static("public"));
+
+//page not found
+app.all("*", (req, res) => {
+  res.status(404).sendFile("404/index.html", { root: "./public" });
+});
 connectToDb();
 module.exports = app;

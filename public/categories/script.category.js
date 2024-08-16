@@ -18,6 +18,76 @@ let currentCategory = getCategoryFromUrl();
 let currentTag = "";
 let searchTerm = "";
 
+document.getElementById("nav-placeholder").innerHTML = `
+ <div class="title">
+        <h2>
+          <a href="/">Dev<span>Nav</span></a>
+        </h2>
+      </div>
+      <div class="category">
+        <ul>
+          <li><a href="/" ${
+            currentCategory === "all" ? 'class="currentPage"' : ""
+          }>All</a></li>
+          <li><a href="../website/" ${
+            currentCategory === "website" ? 'class="currentPage"' : ""
+          }>Websites</a></li>
+          <li>
+            <a href="../youtube channel/" ${
+              currentCategory === "youtube%20channel"
+                ? 'class="currentPage"'
+                : ""
+            }>Youtube-Channel</a>
+          </li>
+          <li><a href="../book/" ${
+            currentCategory === "book" ? 'class="currentPage"' : ""
+          }>Books</a></li>
+          <li><a href="../blog/" ${
+            currentCategory === "blog" ? 'class="currentPage"' : ""
+          }>Blogs</a></li>
+        </ul>
+      </div>
+      <div class="socialMedia">
+        <ul>
+          <li class="x">
+            <a href="https://x.com/Henrylee_hd" title="x">
+              <img src="../../twitter.png" alt="Twitter" />
+            </a>
+          </li>
+          <li class="github">
+            <a href="https://github.com/Henryle-hd" title="gitHub">
+              <img src="../../developer.png" alt="GitHub" />
+            </a>
+          </li>
+          <li class="buyMeCoffee">
+      <a href="https://buymeacoffee.com/henrylee" title="buyMeCoffee">
+        <img src="../../coffee.png" alt="buyMeCoffee" />
+      </a>
+    </li>
+        </ul>
+      </div>
+`;
+document.getElementById("f-placeholder").innerHTML = `
+<div class="socialMedia">
+        <ul>
+          <li class="x">
+            <a href="https://x.com/Henrylee_hd" title="x">
+              <img src="../../twitter.png" alt="Twitter" />
+            </a>
+          </li>
+          <li class="github">
+            <a href="https://github.com/Henryle-hd" title="github">
+              <img src="../../developer.png" alt="GitHub" />
+            </a>
+          </li>
+          <li class="buyMeCoffee">
+            <a href="https://buymeacoffee.com/henrylee" title="buyMeCoffee">
+              <img src="../../coffee.png" alt="buyMeCoffee" />
+            </a>
+          </li>
+        </ul>
+      </div>
+`;
 async function fetchResources() {
   try {
     const response = await fetch(
@@ -61,13 +131,24 @@ function createResourceElement(resource) {
   box.className = "box";
 
   const defaultImage = "../../default.png";
+  const defaultForYoutube = "../../youtube-icon.png";
 
   box.innerHTML = `
     <div class="header">
       <div class="imageAvatar">
-        <img src="${resource.image || defaultImage}" alt="${
-    resource.title
-  } icon" onerror="this.src='${defaultImage}'"/>
+        <img 
+        src="${
+          resource.image ||
+          (resource.category === "YouTube Channel"
+            ? defaultForYoutube
+            : defaultImage)
+        }" 
+        alt="${resource.title} icon"
+        onerror="this.src='${
+          resource.category === "YouTube Channel"
+            ? defaultForYoutube
+            : defaultImage
+        }'"/>
       </div>
       <div class="title">
         <a href="${resource.link}">
@@ -84,7 +165,9 @@ function createResourceElement(resource) {
       ${resource.tags
         .map(
           (tag, index) =>
-            `<a href="#" class="tag tag${(index % 5) + 1}">#${tag}</a>`
+            `<a href="javascript:void(0)" onClick="searchTag('${tag}') " class="tag tag${
+              (index % 5) + 1
+            }">#${tag}</a>`
         )
         .join("")}
     </div>
@@ -93,7 +176,10 @@ function createResourceElement(resource) {
 
   return box;
 }
-
+function searchTag(tag) {
+  document.getElementById("searchInput").value = tag;
+  performSearch();
+}
 function setupPagination() {
   const pagination = document.querySelector(".pagination");
   pagination.addEventListener("click", (e) => {

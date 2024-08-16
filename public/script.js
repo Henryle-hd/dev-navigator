@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
   setupPagination();
   setupSearch();
 });
+fetch("nav.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("nav-placeholder").innerHTML = data;
+  });
 
 let currentPage = 1;
 const itemsPerPage = 10;
@@ -53,13 +58,24 @@ function createResourceElement(resource) {
   box.className = "box";
 
   const defaultImage = "./default.png";
+  const defaultForYoutube = "./youtube-icon.png";
 
   box.innerHTML = `
     <div class="header">
       <div class="imageAvatar">
-        <img src="${resource.image || defaultImage}" alt="${
-    resource.title
-  } icon" onerror="this.src='${defaultImage}'"/>
+        <img 
+        src="${
+          resource.image ||
+          (resource.category === "YouTube Channel"
+            ? defaultForYoutube
+            : defaultImage)
+        }" 
+        alt="${resource.title} icon"
+        onerror="this.src='${
+          resource.category === "YouTube Channel"
+            ? defaultForYoutube
+            : defaultImage
+        }'"/>
       </div>
       <div class="title">
         <a href="${resource.link}">
@@ -76,7 +92,9 @@ function createResourceElement(resource) {
       ${resource.tags
         .map(
           (tag, index) =>
-            `<a href="#" class="tag tag${(index % 5) + 1}">#${tag}</a>`
+            `<a href="javascript:void(0);" onclick="searchTag('${tag}')" class="tag tag${
+              (index % 5) + 1
+            }">#${tag}</a>`
         )
         .join("")}
     </div>
@@ -85,7 +103,10 @@ function createResourceElement(resource) {
 
   return box;
 }
-
+function searchTag(tag) {
+  document.getElementById("searchInput").value = tag;
+  performSearch();
+}
 function setupPagination() {
   const pagination = document.querySelector(".pagination");
   pagination.addEventListener("click", (e) => {
@@ -138,7 +159,7 @@ function setupSearch() {
 }
 
 async function performSearch() {
-  searchTerm = document.getElementById("searchInput").value;
+  searchTerm = document.getElementById("searchInput").value.trim();
   try {
     const response = await fetch(
       `/api/v1/query?search=${encodeURIComponent(
