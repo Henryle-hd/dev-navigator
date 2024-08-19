@@ -38,6 +38,7 @@ const searchResources = async (req, res) => {
       totalPages: Math.ceil(total / limit),
       TotalMatchFound: total
     });
+    console.log("query done!"); //test
   } catch (error) {
     res.status(500).json({
       success: false,

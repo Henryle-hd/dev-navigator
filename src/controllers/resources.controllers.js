@@ -19,6 +19,7 @@ const getResources = async (req, res) => {
       totalPages: Math.ceil(total / limit),
       totalResources: total
     });
+    console.log("get all resources done!"); //test
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
     // console.error(error);
@@ -36,6 +37,7 @@ const getResource = async (req, res) => {
         .json({ success: false, message: "Resource not found" });
     }
     res.status(200).json({ success: true, data: resource });
+    console.log("get resources done!"); //test
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
@@ -58,6 +60,7 @@ const addResources = async (req, res) => {
 
     const addedResources = await Resource.create(validResources);
     res.status(201).json({ success: true, data: addedResources });
+    console.log("post done!"); //test
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
@@ -70,6 +73,7 @@ const updateResource = async (req, res) => {
     const resources = await Resource.findByIdAndUpdate(id, req.body);
     const updatedResources = await Resource.findById(id);
     res.status(200).json({ success: true, data: updatedResources });
+    console.log("update done!"); //test
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
@@ -88,6 +92,7 @@ const deleteResource = async (req, res) => {
     res
       .status(200)
       .json({ success: true, data: "Resource successful deleted" });
+    console.log("delete done!"); //test
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }

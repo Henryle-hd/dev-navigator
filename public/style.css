@@ -39,6 +39,10 @@ nav .title h2 {
 .currentPage {
   color: #ff5400;
 }
+nav .category {
+  display: flex;
+  gap: 2em;
+}
 nav ul {
   list-style-type: none;
   padding: 0;
@@ -83,6 +87,119 @@ nav .socialMedia ul li a img {
 }
 nav .socialMedia ul li a:hover {
   color: #ff5400;
+}
+
+nav .addResource .addBTN {
+  /*display: inline-block;
+  */
+  padding: 0.75rem 1.25rem;
+  background-color: #ff5400;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+nav .addResource .addBTN:hover {
+  background-color: #ff7634;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+nav .addResource .addBTN:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  max-width: 330px;
+  margin: 150px auto 0;
+  padding: 30px;
+  background-color: #131518;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(255, 84, 0, 0.1), 0 4px 8px rgba(255, 85, 0, 0.088);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(255, 84, 0, 0.15),
+    0 8px px18 rgba(255, 85, 0, 0.152);
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ff5400;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  max-width: 90%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: #1e2126;
+  color: aliceblue;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+  border-color: #ff5400;
+  box-shadow: 0 0 0 3px rgba(255, 84, 0, 0.2);
+  outline: none;
+}
+
+form button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff5400;
+  color: aliceblue;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+form button[type="submit"]:hover {
+  background-color: #ff7730;
+  transform: scale(1.05);
+}
+
+form button[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+.title h1 {
+  text-align: center;
+  color: #ff5400;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+form .optionLink {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #ff7634;
+  margin-top: 5px;
+  font-size: 12px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .searchDev {
@@ -316,6 +433,57 @@ main {
   font-size: 1.5rem;
   margin: 0;
 }
+.success-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 330px;
+  margin: 150px auto 0;
+  padding: 30px;
+  background-color: #131518;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(255, 84, 0, 0.1), 0 4px 8px rgba(255, 85, 0, 0.088);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.success-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(255, 84, 0, 0.15),
+    0 8px 18px rgba(255, 85, 0, 0.152);
+}
+
+.success-box h2 {
+  color: #ff5400;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.success-box p {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.success-box .btn {
+  background-color: #ff5400;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.success-box .btn:hover {
+  background-color: #ff7634;
+}
+
+.successIcon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
 
 footer {
   display: none;
@@ -356,26 +524,35 @@ footer .socialMedia ul li a:hover img {
   }
 
   .searchDev {
-    margin-top: 200px;
+    margin-top: 130px;
   }
 
   .searchDev .search {
-    flex-direction: column;
-    height: auto;
-    padding: 10px;
-    max-width: 320px;
+    /* flex-direction: row;
+    height: auto; */
+    /* padding: 10px; */
+    max-width: 340px;
+    /* height: 5vh; */
+    align-items: center;
+    justify-content: center;
   }
 
   .searchDev .search input[type="text"] {
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     text-align: center;
   }
 
   .searchDev .search input[type="submit"] {
-    width: 100%;
-    border-left: none;
-    border-top: 1px solid #ff5400;
-    border-radius: 3px;
+    width: 30%;
+    /* border-left: none; */
+    /* border-top: 1px solid #ff5400; */
+    /* border-radius: 3px; */
+    /* background-color: #ff5400; */
+  }
+
+  form {
+    margin-top: 200px;
+    padding: 15px;
   }
 
   footer {

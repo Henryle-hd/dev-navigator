@@ -46,6 +46,11 @@ document.getElementById("nav-placeholder").innerHTML = `
             currentCategory === "blog" ? 'class="currentPage"' : ""
           }>Blogs</a></li>
         </ul>
+        <div class="addResource">
+    <a href="/addResource" class="addBTN" title="add resources"
+      >+resources 📚
+    </a>
+  </div>
       </div>
       <div class="socialMedia">
         <ul>
