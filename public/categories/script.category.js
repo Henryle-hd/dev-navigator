@@ -92,6 +92,11 @@ document.getElementById("f-placeholder").innerHTML = `
           </li>
         </ul>
       </div>
+       <div class="addResource">
+        <a href="/addResource" class="addBTN" title="add resources"
+          >+resources 📚
+        </a>
+      </div>
 `;
 async function fetchResources() {
   try {

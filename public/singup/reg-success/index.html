@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <title>Successful!🎉-Dev-Nav</title>
   </head>
   <body>
@@ -14,10 +15,15 @@
     <div class="success-box">
       <h1 class="successIcon">🎉</h1>
       <h2>Registration Successful!</h2>
-      <p>
+      <!-- <p>
         Thank you for signing up. Your account has been created successfully.
+      </p> -->
+      <p>
+        With your new account, you can now add free resources you know about to
+        help others navigate to valuable content. Share your knowledge and
+        contribute to the community!
       </p>
-      <a href="/" class="btn">Go to Homepage</a>
+      <a href="/" class="btn">Start adding 📚</a>
     </div>
     <footer id="f-placeholder"></footer>
     <script
@@ -33,5 +39,17 @@
       data-y_margin="18"
     ></script>
     <script src="../../categories/script.category.js"></script>
+    <script>
+      confetti({
+        particleCount: 100,
+        spread: 1000,
+        origin: { y: 0.1 }
+      });
+      confetti({
+        particleCount: 100,
+        spread: 1000,
+        origin: { y: 0.3 }
+      });
+    </script>
   </body>
 </html>

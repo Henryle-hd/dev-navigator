@@ -89,7 +89,8 @@ nav .socialMedia ul li a:hover {
   color: #ff5400;
 }
 
-nav .addResource .addBTN {
+nav .addResource .addBTN,
+footer .addResource .addBTN {
   /*display: inline-block;
   */
   padding: 0.75rem 1.25rem;
@@ -434,12 +435,13 @@ main {
   margin: 0;
 }
 .success-box {
+  /* width: 20%; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  max-width: 330px;
+  max-width: 350px;
   margin: 150px auto 0;
   padding: 30px;
   background-color: #131518;
@@ -461,18 +463,23 @@ main {
 }
 
 .success-box p {
-  color: #fff;
+  color: #b8bdc2;
   font-size: 1.1rem;
   margin-bottom: 30px;
+  text-align: justify;
 }
 
 .success-box .btn {
-  background-color: #ff5400;
-  color: #fff;
   text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  background-color: #ff5400;
+  color: #ffffff;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
 }
 
@@ -484,6 +491,20 @@ main {
   font-size: 48px;
   margin-bottom: 20px;
 }
+/* .success-box p:nth-child(3) {
+  font-weight: bold;
+  color: #ff8c00;
+}
+
+.success-box p:nth-child(4) {
+  font-style: italic;
+  color: #ffa07a;
+}
+
+.success-box p:nth-child(5) {
+  text-decoration: underline;
+  color: #ff6347;
+} */
 
 footer {
   display: none;
@@ -519,7 +540,8 @@ footer .socialMedia ul li a:hover img {
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
   }
-  nav .socialMedia {
+  nav .socialMedia,
+  nav .addResource {
     display: none;
   }
 
@@ -555,6 +577,9 @@ footer .socialMedia ul li a:hover img {
     padding: 15px;
   }
 
+  .success-box {
+    max-width: 320px;
+  }
   footer {
     display: block;
     color: aliceblue;
