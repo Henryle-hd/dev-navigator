@@ -43,7 +43,7 @@ const login = async (req, res) => {
       return res
         .status(401)
         .sendFile(
-          path.join(__dirname, "../public/login/login-failed/index.html")
+          path.join(__dirname, "../../public/login/login-failed/index.html")
         );
     }
     const isMatch = await bcrypt.compare(password, user.password);
@@ -51,7 +51,7 @@ const login = async (req, res) => {
       return res
         .status(401)
         .sendFile(
-          path.join(__dirname, "../public/login/login-failed/index.html")
+          path.join(__dirname, "../../public/login/login-failed/index.html")
         );
     }
 

@@ -47,7 +47,7 @@ document.getElementById("nav-placeholder").innerHTML = `
           }>Blogs</a></li>
         </ul>
         <div class="addResource">
-    <a href="/addResource" class="addBTN" title="add resources"
+    <a href="/user/add-resource" class="addBTN" title="add resources"
       >+resources 📚
     </a>
   </div>
