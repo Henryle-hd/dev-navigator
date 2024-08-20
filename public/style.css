@@ -202,7 +202,10 @@ form .optionLink {
   margin-left: auto;
   margin-right: auto;
 }
-
+form .oops-p {
+  color: #ff4c34;
+  text-align: center;
+}
 .searchDev {
   margin-top: 150px;
   display: flex;
@@ -523,6 +526,54 @@ footer .socialMedia ul li a:hover img {
 footer .socialMedia ul li a:hover img {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
     hue-rotate(93deg) brightness(103%) contrast(103%);
+}
+
+/* 500 */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.error-code {
+  font-size: 6em;
+  font-weight: bold;
+  color: #ff5400;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.error-container p {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.action-buttons .btn {
+  padding: 10px 20px;
+  background-color: #ff5400;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.action-buttons .btn:hover {
+  background-color: #ff7634;
 }
 
 @media screen and (max-width: 768px) {

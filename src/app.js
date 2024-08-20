@@ -1,14 +1,24 @@
 const express = require("express");
 const connectToDb = require("../config/database");
+const session = require("express-session");
 const routerResources = require("./routers/resources.router");
 const routerQuery = require("./routers/query.router");
 const routerUser = require("./routers/users.router");
 const routerUserAth = require("./routers/userAuth.router");
 const app = express();
-
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+//session
+app.use(
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+  })
+);
 
 //static
 app.use(express.static("public"));
@@ -25,4 +35,4 @@ app.all("*", (req, res) => {
   console.log("page not done!"); //test
 });
 connectToDb();
-module.exports = app;
+module.exports = { app };

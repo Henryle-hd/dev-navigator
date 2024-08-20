@@ -93,7 +93,7 @@ document.getElementById("f-placeholder").innerHTML = `
         </ul>
       </div>
        <div class="addResource">
-        <a href="/addResource" class="addBTN" title="add resources"
+        <a href="/user/add-resource" class="addBTN" title="add resources"
           >+resources 📚
         </a>
       </div>
